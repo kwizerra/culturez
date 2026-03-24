@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CULTUREZ® — Wear it. Rock it. Own it.</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Announcement bar — promo text at very top -->
+  <div class="announce-bar">
+    Free delivery on orders over <strong>UGX 200,000</strong> &nbsp;·&nbsp; WhatsApp us to order
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="shop.html" title="Shop">&#9776;</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">New Collection — 2025</p>
+      <h1 class="hero-title">Wear it.<br><em>Rock it.</em><br>Own it.</h1>
+      <p class="hero-sub">Curated streetwear for those who move with intention. Every piece chosen for the energy it carries.</p>
+      <div class="hero-btns">
+        <a href="shop.html" class="btn-primary">Shop Now</a>
+        <a href="about.html" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scrolling strip -->
+  <div class="featured-strip">
+    <div class="strip-inner">
+      <span>New Arrivals</span><span>Free Returns</span><span>Wear it</span>
+      <span>Rock it</span><span>Own it</span><span>Kampala</span>
+      <span>New Arrivals</span><span>Free Returns</span><span>Wear it</span>
+      <span>Rock it</span><span>Own it</span>
+    </div>
+  </div>
+
+  <!-- Featured Products -->
+  <section class="section-wrap">
+    <div class="section-header">
+      <p class="section-eyebrow">Just dropped</p>
+      <h2 class="section-title">New Arrivals</h2>
+      <div class="title-rule"></div>
+    </div>
+    <!-- JS fills this in — only showing 3 on homepage -->
+    <div class="product-grid" id="home-grid"></div>
+    <div class="view-all-wrap">
+      <a href="shop.html" class="btn-text-link">View Full Collection</a>
+    </div>
+  </section>
+
+  <!-- Brand band -->
+  <div class="brand-band">
+    <div class="brand-band-text">
+      <h2>More than clothes.<br>It's how you carry yourself.</h2>
+      <p>Culturez was built on one idea — that what you wear should reflect who you are, not who a brand wants you to be. We source pieces with real character and bring them to Kampala.</p>
+      <a href="about.html" class="btn-text-link">Learn More</a>
+    </div>
+    <div class="brand-band-img">
+      <img src="https://picsum.photos/seed/culturez-band/600/750" alt="Brand">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+        <p>Curated streetwear, delivered to your door. Kampala's cleanest fits.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="shop.html">New Arrivals</a>
+        <a href="shop.html">Tops</a>
+        <a href="shop.html">Bottoms</a>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/256776521400" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Culturez. Uganda.</span>
+      <span>wear it, rock it, own it.</span>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    // Show only first 3 products on homepage
+    const homeGrid = document.getElementById("home-grid");
+    products.slice(0, 3).forEach(function(product) {
+      const badge = product.badge
+        ? `<span class="card-badge">${product.badge}</span>` : "";
+      homeGrid.innerHTML += `
+        <a href="product.html?id=${product.id}" class="product-card">
+          <div class="card-img-wrap">
+            <img src="${product.image}" alt="${product.name}">${badge}
+          </div>
+          <div class="card-info">
+            <p class="card-category">${product.category}</p>
+            <p class="card-name">${product.name}</p>
+            <p class="card-price">${product.price}</p>
+          </div>
+        </a>`;
+    });
+  </script>
+</body>
+</html>

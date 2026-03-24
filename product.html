@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CULTUREZ® — Product</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="announce-bar">Free delivery on orders over <strong>UGX 200,000</strong></div>
+  <nav class="navbar">
+    <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-icons"><a href="shop.html">&#9776;</a></div>
+  </nav>
+
+  <a href="shop.html" class="back-link">← Back to Shop</a>
+
+  <div class="product-detail">
+    <div class="product-img-wrap">
+      <img id="product-image" src="" alt="">
+    </div>
+    <div class="product-info">
+      <p class="product-category-label" id="product-category"></p>
+      <h1 class="product-name" id="product-name"></h1>
+      <p class="product-price" id="product-price"></p>
+      <hr class="product-divider">
+      <p class="size-label">Select Size</p>
+      <div class="size-options">
+        <input type="radio" name="size" id="s" value="S">
+        <label for="s">S</label>
+        <input type="radio" name="size" id="m" value="M" checked>
+        <label for="m">M</label>
+        <input type="radio" name="size" id="l" value="L">
+        <label for="l">L</label>
+        <input type="radio" name="size" id="xl" value="XL">
+        <label for="xl">XL</label>
+      </div>
+      <div class="product-desc" id="product-desc"></div>
+      <ul class="product-details-list" id="product-details"></ul>
+    </div>
+  </div>
+
+  <div style="height:100px"></div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+        <p>Curated streetwear, delivered to your door.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/256700000000" target="_blank">WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Culturez. Uganda.</span>
+      <span>wear it, rock it, own it.</span>
+    </div>
+  </footer>
+
+  <!-- STICKY BUY BAR -->
+  <div class="sticky-buy-bar">
+    <div class="sticky-buy-inner">
+      <a id="whatsapp-btn" href="#" class="btn-whatsapp" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat with us
+      </a>
+      <button class="btn-buy" id="buy-btn" onclick="openCheckout()">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="checkout-overlay hidden" id="checkout-overlay">
+    <div class="checkout-backdrop" onclick="closeCheckout()"></div>
+    <div class="checkout-modal">
+      <div class="checkout-header">
+        <h2 class="checkout-title">Checkout</h2>
+        <button class="checkout-close" onclick="closeCheckout()">✕</button>
+      </div>
+      <div class="checkout-progress">
+        <div class="checkout-progress-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- Step 1: Delivery -->
+      <div class="checkout-step" id="step-1">
+        <p class="step-label">Step 1 of 3</p>
+        <h3 class="step-heading">How do you want to get it?</h3>
+        <div class="option-cards">
+          <div class="option-card" onclick="chooseDelivery('pickup')">
+            <span class="option-icon">🏪</span>
+            <div><p class="option-title">Pickup</p><p class="option-sub">Collect from our location in Kampala</p></div>
+          </div>
+          <div class="option-card" onclick="chooseDelivery('delivery')">
+            <span class="option-icon">🚚</span>
+            <div><p class="option-title">Delivery</p><p class="option-sub">We bring it to you (Kampala area)</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Details -->
+      <div class="checkout-step hidden" id="step-2">
+        <p class="step-label">Step 2 of 3</p>
+        <h3 class="step-heading">Your details</h3>
+        <div class="checkout-form">
+          <div class="checkout-field">
+            <label for="c-name">Full Name</label>
+            <input type="text" id="c-name" placeholder="e.g. Alex Mugisha">
+          </div>
+          <div class="checkout-field">
+            <label for="c-phone">Phone Number</label>
+            <input type="tel" id="c-phone" placeholder="e.g. 0700 000 000">
+          </div>
+          <div class="checkout-field hidden" id="address-field">
+            <label for="c-address">Delivery Address</label>
+            <input type="text" id="c-address" placeholder="e.g. Ntinda, Kampala">
+          </div>
+        </div>
+        <button class="checkout-next-btn" onclick="submitDetails()">Continue →</button>
+      </div>
+
+      <!-- Step 3: Payment -->
+      <div class="checkout-step hidden" id="step-3">
+        <p class="step-label">Step 3 of 3</p>
+        <h3 class="step-heading">How do you want to pay?</h3>
+        <div class="option-cards">
+          <div class="option-card" onclick="choosePayment('cash')">
+            <span class="option-icon">💵</span>
+            <div><p class="option-title">Cash</p><p class="option-sub">Pay when you pick up or receive</p></div>
+          </div>
+          <div class="option-card" onclick="choosePayment('airtel')">
+            <span class="option-icon momo-icon airtel-icon">A</span>
+            <div><p class="option-title">Airtel Money</p><p class="option-sub">Send to our Airtel number</p></div>
+          </div>
+          <div class="option-card" onclick="choosePayment('mtn')">
+            <span class="option-icon momo-icon mtn-icon">M</span>
+            <div><p class="option-title">MTN Mobile Money</p><p class="option-sub">Send to our MTN number</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4A: MoMo -->
+      <div class="checkout-step hidden" id="step-momo">
+        <h3 class="step-heading" id="momo-heading">Send via MTN MoMo</h3>
+        <div class="order-summary">
+          <div class="summary-row"><span id="summary-product-name">Product</span><span id="summary-price"></span></div>
+          <div class="summary-row summary-row-total"><span>Total</span><span id="summary-total"></span></div>
+        </div>
+        <div class="momo-steps">
+          <p class="momo-label">How to pay:</p>
+          <ol class="momo-list">
+            <li>Dial <strong id="momo-dial-code">*165#</strong> on your phone</li>
+            <li>Select <strong>Send Money</strong></li>
+            <li>Enter number: <strong id="momo-number" class="momo-highlight">0700 000 000</strong></li>
+            <li>Enter amount: <strong id="momo-amount" class="momo-highlight"></strong></li>
+            <li>Use your name as reference</li>
+            <li>Confirm with your PIN</li>
+          </ol>
+        </div>
+        <a id="momo-whatsapp-btn" href="#" class="checkout-whatsapp-btn" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Tap here after sending — confirm on WhatsApp
+        </a>
+      </div>
+
+      <!-- Step 4B: Cash -->
+      <div class="checkout-step hidden" id="step-cash">
+        <div class="success-icon">✓</div>
+        <h3 class="step-heading">Order Confirmed!</h3>
+        <div class="order-summary">
+          <div class="summary-row"><span id="cash-summary-name">Product</span><span id="cash-summary-price"></span></div>
+          <div class="summary-row"><span>Payment</span><span>Cash on <span id="cash-delivery-method">pickup</span></span></div>
+          <div class="summary-row summary-row-total"><span>Total Due</span><span id="cash-summary-total"></span></div>
+        </div>
+        <p class="cash-note" id="cash-note"></p>
+        <a id="cash-whatsapp-btn" href="#" class="checkout-whatsapp-btn" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Notify us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script>
+    // Load product from URL
+    const productId = Number(new URLSearchParams(window.location.search).get("id"));
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+      window.location.href = "shop.html";
+    } else {
+      document.title = `CULTUREZ® — ${product.name}`;
+      document.getElementById("product-image").src = product.image;
+      document.getElementById("product-image").alt = product.name;
+      document.getElementById("product-category").textContent = product.category;
+      document.getElementById("product-name").textContent = product.name;
+      document.getElementById("product-price").textContent = product.price;
+      document.getElementById("product-desc").innerHTML = `<p>${product.description}</p>`;
+      const list = document.getElementById("product-details");
+      product.details.forEach(d => { list.innerHTML += `<li>${d}</li>`; });
+      document.getElementById("buy-btn").textContent = `Buy Now — ${product.price}`;
+      const waMsg = encodeURIComponent(`Hi Culturez! I'm interested in the ${product.name}`);
+      document.getElementById("whatsapp-btn").href = `https://wa.me/256700000000?text=${waMsg}`;
+    }
+
+    // Checkout state
+    const order = { deliveryMethod: "", name: "", phone: "", address: "", paymentMethod: "", size: "M" };
+
+    function showStep(stepId) {
+      document.querySelectorAll(".checkout-step").forEach(el => el.classList.add("hidden"));
+      document.getElementById(stepId).classList.remove("hidden");
+      const map = { "step-1": "33%", "step-2": "66%", "step-3": "90%", "step-momo": "100%", "step-cash": "100%" };
+      document.getElementById("progress-fill").style.width = map[stepId] || "33%";
+    }
+
+    function openCheckout() {
+      const checked = document.querySelector('input[name="size"]:checked');
+      if (checked) order.size = checked.value;
+      document.getElementById("checkout-overlay").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      showStep("step-1");
+    }
+
+    function closeCheckout() {
+      document.getElementById("checkout-overlay").classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function chooseDelivery(method) {
+      order.deliveryMethod = method;
+      const addressField = document.getElementById("address-field");
+      method === "delivery" ? addressField.classList.remove("hidden") : addressField.classList.add("hidden");
+      showStep("step-2");
+    }
+
+    function submitDetails() {
+      const name = document.getElementById("c-name").value.trim();
+      const phone = document.getElementById("c-phone").value.trim();
+      const address = document.getElementById("c-address").value.trim();
+      if (!name || !phone) { alert("Please enter your name and phone number."); return; }
+      if (order.deliveryMethod === "delivery" && !address) { alert("Please enter your delivery address."); return; }
+      order.name = name; order.phone = phone; order.address = address;
+      showStep("step-3");
+    }
+
+    function choosePayment(method) {
+      order.paymentMethod = method;
+      method === "cash" ? showCashConfirmation() : showMomoInstructions(method);
+    }
+
+    function showMomoInstructions(method) {
+      const isAirtel = method === "airtel";
+      document.getElementById("momo-heading").textContent = isAirtel ? "Send via Airtel Money" : "Send via MTN MoMo";
+      document.getElementById("momo-dial-code").textContent = isAirtel ? "*185#" : "*165#";
+      document.getElementById("momo-number").textContent = "0700 000 000";
+      document.getElementById("summary-product-name").textContent = product.name;
+      document.getElementById("summary-price").textContent = product.price;
+      document.getElementById("summary-total").textContent = product.price;
+      document.getElementById("momo-amount").textContent = product.price;
+      const msg = encodeURIComponent(
+        `Hi Culturez! I just sent ${product.price} via ${isAirtel ? "Airtel Money" : "MTN MoMo"} for:\n` +
+        `• ${product.name} (Size: ${order.size})\n• Name: ${order.name}\n• Phone: ${order.phone}\n` +
+        (order.deliveryMethod === "delivery" ? `• Delivery to: ${order.address}\n` : `• Pickup\n`) +
+        `Please confirm my order. Thank you!`
+      );
+      document.getElementById("momo-whatsapp-btn").href = `https://wa.me/256700000000?text=${msg}`;
+      showStep("step-momo");
+    }
+
+    function showCashConfirmation() {
+      document.getElementById("cash-summary-name").textContent = product.name;
+      document.getElementById("cash-summary-price").textContent = product.price;
+      document.getElementById("cash-summary-total").textContent = product.price;
+      document.getElementById("cash-delivery-method").textContent = order.deliveryMethod === "delivery" ? "delivery" : "pickup";
+      document.getElementById("cash-note").textContent = order.deliveryMethod === "delivery"
+        ? `We'll reach out to ${order.name} on ${order.phone} to confirm delivery to ${order.address}.`
+        : `We'll reach out to ${order.name} on ${order.phone} to confirm your pickup time.`;
+      const msg = encodeURIComponent(
+        `Hi Culturez! I'd like to order:\n• ${product.name} (Size: ${order.size})\n• Payment: Cash\n` +
+        `• Name: ${order.name}\n• Phone: ${order.phone}\n` +
+        (order.deliveryMethod === "delivery" ? `• Delivery to: ${order.address}\n` : `• Pickup\n`) +
+        `Please confirm. Thank you!`
+      );
+      document.getElementById("cash-whatsapp-btn").href = `https://wa.me/256700000000?text=${msg}`;
+      showStep("step-cash");
+    }
+  </script>
+</body>
+</html>

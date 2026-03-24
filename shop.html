@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CULTUREZ® — Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="announce-bar">Free delivery on orders over <strong>UGX 200,000</strong></div>
+  <nav class="navbar">
+    <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-icons"><a href="shop.html">&#9776;</a></div>
+  </nav>
+
+  <div class="page-hero" data-title="Shop">
+    <p class="page-hero-eyebrow">The Collection</p>
+    <h1>All Products</h1>
+  </div>
+
+  <div class="section-wrap">
+    <div class="product-grid" id="shop-grid"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">CULTUREZ<span>®</span></a>
+        <p>Curated streetwear, delivered to your door.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/256700000000" target="_blank">WhatsApp Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Culturez. Uganda.</span>
+      <span>wear it, rock it, own it.</span>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+  <script>
+    const grid = document.getElementById("shop-grid");
+    products.forEach(function(product) {
+      const badge = product.badge
+        ? `<span class="card-badge">${product.badge}</span>` : "";
+      grid.innerHTML += `
+        <a href="product.html?id=${product.id}" class="product-card">
+          <div class="card-img-wrap">
+            <img src="${product.image}" alt="${product.name}">${badge}
+          </div>
+          <div class="card-info">
+            <p class="card-category">${product.category}</p>
+            <p class="card-name">${product.name}</p>
+            <p class="card-price">${product.price}</p>
+          </div>
+        </a>`;
+    });
+  </script>
+</body>
+</html>
