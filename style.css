@@ -122,16 +122,8 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https://picsum.photos/seed/culturez-hero/1600/900') center/cover no-repeat;
-  /* warm overlay so text is always readable */
-  filter: brightness(0.55) sepia(0.3);
-  transform: scale(1.03);
-  animation: heroZoom 10s ease-out forwards;
-}
-
-@keyframes heroZoom {
-  from { transform: scale(1.08); }
-  to   { transform: scale(1.0); }
+  /* Plain warm gradient background — no image */
+  background: linear-gradient(135deg, #2C1A0E 0%, #4A2E1A 50%, #2C1A0E 100%);
 }
 
 /* Grain texture overlay — adds that editorial print feel */
